@@ -8,6 +8,8 @@ namespace Kurvendiskussion_neu
 {
     class Program
     {
+        
+
         static void Main(string[] args)
         {
             string nochmal = "n";
@@ -166,6 +168,9 @@ namespace Kurvendiskussion_neu
 
 
                         //Nullstellen 
+                        //Achsenschnittpunkte
+                        string Ergebnis_yAchsenschnittpunkt = "Der Schnittpunkt mit der y-Achse liegt bei Sy=(0; " + c + ").";
+                        string Ergebnis_xAchsenschnittpunkt = "";
                         double D;
                         double x1, x2, x0;
                         string Ergebnis_Nullstellen;
@@ -173,22 +178,48 @@ namespace Kurvendiskussion_neu
                         if (D < 0)
                         {
                             Ergebnis_Nullstellen = "Die Funktion hat keine reellen Nullstellen.";
+                            Ergebnis_xAchsenschnittpunkt = "Es gibt keinen Schnittpunkt mit der x-Achse.";
                         }
                         else if (D == 0)
                         {
                             x0=-b/(2*a);
                             Ergebnis_Nullstellen = "Die Funktion hat eine doppelte reelle Nullstelle bei x_N="+x0+".";
+                            Ergebnis_xAchsenschnittpunkt = "Der Schnittpunkt mit der x-Achse liegt bei Sx=(" + x0 + "; 0).";
                         }
                         else
                         {
                             x1 = (-b + Math.Sqrt(D)) / (2 * a);
                             x2 = (-b - Math.Sqrt(D)) / (2 * a);
                             Ergebnis_Nullstellen = "Die Funktion hat zwei reelle Nullstellen bei x_N1="+x1+" und x_N2="+x2+".";
+                            Ergebnis_xAchsenschnittpunkt = "Die Schnittpunkte mit der x-Achse sind Sx1=("+x1+"; 0) und Sx2=("+x2+"; 0).";
                         }
 
+                        //Scheitelpunkt und Monotonie
+                        double x_Scheitelpunkt, y_Scheitelpunkt;
+                        x_Scheitelpunkt = -b / (2 * a);
+                        y_Scheitelpunkt = c - b * b / (4 * a);
+                        string Ergebnis_Scheitelpunkt = "Der Scheitelpunkt liegt bei S_SP=(" + x_Scheitelpunkt + "; " + y_Scheitelpunkt + ").";
+                        string Ergebnis_Monotonie="";
+                        //string infty = "∞";
+                        if (a > 0)
+                        {
+                            Ergebnis_Monotonie = "Die Funktion ist streng monoton fallend im Intervall (-\u221E; "
+                                                     + x_Scheitelpunkt + ") und monoton wachsend im Intervall " +
+                                                     "[" + y_Scheitelpunkt + "; +\u221E)";
+                        }
+                        else
+                        {
+                            Ergebnis_Monotonie = "Die Funktion ist streng monoton wachsend im Intervall (-\u221E; "
+                                                     + x_Scheitelpunkt + ") und monoton fallend im Intervall " +
+                                                     "[" + y_Scheitelpunkt + "; +\u221E)";
+                        }
 
                         //---------Ausgabe-------------
                         Console.WriteLine(Ergebnis_Nullstellen);
+                        Console.WriteLine(Ergebnis_xAchsenschnittpunkt);
+                        Console.WriteLine(Ergebnis_yAchsenschnittpunkt);
+                        Console.WriteLine(Ergebnis_Scheitelpunkt);
+                        Console.WriteLine(Ergebnis_Monotonie);
 
                         break;
                     default:
