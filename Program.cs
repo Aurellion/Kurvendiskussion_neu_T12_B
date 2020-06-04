@@ -205,13 +205,13 @@ namespace Kurvendiskussion_neu
                         {
                             Ergebnis_Monotonie = "Die Funktion ist streng monoton fallend im Intervall (-\u221E; "
                                                      + x_Scheitelpunkt + ") und monoton wachsend im Intervall " +
-                                                     "[" + y_Scheitelpunkt + "; +\u221E)";
+                                                     "[" + x_Scheitelpunkt + "; +\u221E)";
                         }
                         else
                         {
                             Ergebnis_Monotonie = "Die Funktion ist streng monoton wachsend im Intervall (-\u221E; "
                                                      + x_Scheitelpunkt + ") und monoton fallend im Intervall " +
-                                                     "[" + y_Scheitelpunkt + "; +\u221E)";
+                                                     "[" + x_Scheitelpunkt + "; +\u221E)";
                         }
 
                         //---------Ausgabe-------------
